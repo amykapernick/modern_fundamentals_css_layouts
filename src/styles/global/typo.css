@@ -1,0 +1,70 @@
+body {
+	color:var(--neutral);
+	font-family: $font_main;
+	font-size: 1.1em;
+	line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5 {
+	color: var(--navy);
+	font-family: $font_heading;
+
+	& a {
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+h1 {
+	font-size: 2em;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 1.5em;
+	font-weight: 700;
+}
+
+h3 {
+	font-size: 1.2em;
+	font-weight: 600;
+}
+
+h4, h5 {
+	color: inherit;
+}
+
+h4 {
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+h5 {
+	font-size: 1em;
+	font-weight: 600;
+}
+
+nav {
+	& ul, & li {
+		list-style: none;
+	}
+
+	& a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+
+button, .btn, input[type="submit"] {
+
+	@include button;
+}

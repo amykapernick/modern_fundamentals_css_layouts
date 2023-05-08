@@ -1,0 +1,21 @@
+{
+	"stylelint.enable": true,
+	"css.validate": false,
+	"stylelint.configFile": "./config/stylelint.config.cjs",
+	"postcss.validate": false,
+	"stylelint.validate": [
+		"css",
+		"less",
+		"postcss",
+		"astro"
+	],
+	"prettier.configPath": "./config/prettier.config.cjs",
+	"[astro]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+	},
+	"editor.formatOnSave": false,
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true,
+		"source.fixAll.stylelint": true,
+	},
+} 

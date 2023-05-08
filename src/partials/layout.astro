@@ -1,0 +1,56 @@
+---
+import "@styles/main.css";
+import Header from "@partials/header";
+import Footer from "@partials/footer";
+import DevStyles from "@partials/devStyles";
+import Favicon from "@img/favicon.ico";
+
+const env = import.meta.env.MODE; 
+
+const siteData = {
+  title: "Home",
+  description: "Meal Planning, Tasks, Reminders, Calendars",
+};
+
+const content = {
+  ...siteData,
+  ...Astro?.props?.content,
+};
+
+const { title, description } = content;
+---
+
+<style>
+  @import '@mixins';
+
+  main {
+
+    @include container_spacing;
+  }
+</style>
+
+<!DOCTYPE html>
+<html lang="en-AU">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,shrink-to-fit=no"
+    />
+    <link rel="shortcut icon" href={Favicon} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+  </head>
+
+  <body class={Astro.props.class}>
+    {env === "development" && <DevStyles />}
+    <Header />
+
+    <main>
+      <slot />
+    </main>
+
+    <Footer />
+  </body>
+</html>

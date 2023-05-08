@@ -1,0 +1,34 @@
+---
+import RecipeFeed from "@components/meals/recipeFeed";
+import generateCategories from "@utils/meals/categories";
+import { getCollection } from "astro:content";
+import Layout from '@layouts/default';
+import Categories from "@components/meals/categories";
+
+export async function getStaticPaths() {
+	const recipes = await getCollection('recipes')
+	const categories = generateCategories(recipes)
+
+	return categories.map((category) => ({
+		params: { category: category.slug },
+		props: {category}
+	}))
+}
+
+const category = Astro.props.category;
+
+const allRecipes = await getCollection('recipes')
+
+const recipes = allRecipes.filter((recipe) => {
+	return recipe.data.categories?.includes(category.label);
+})
+
+const categories = generateCategories(allRecipes);
+
+---
+
+<Layout>
+	<h1>{category.label} Recipes</h1>
+	<Categories categories={categories} current={Astro.params.category} />
+	<RecipeFeed recipes={recipes} />
+</Layout>

@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/default';
+import ShoppingList from 'src/react/meals/shoppingList';
+
+const recipes = await getCollection('recipes');
+
+---
+
+<Layout>
+	<h1>Shopping List</h1>
+	<ShoppingList client:load recipes={recipes} />
+</Layout>

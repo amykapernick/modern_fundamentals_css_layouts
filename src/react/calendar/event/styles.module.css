@@ -1,0 +1,20 @@
+.event {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: center;
+	line-height: 1.5;
+}
+
+.controls {
+	& > :global(button) {
+		--button_text: currentColor;
+
+		&:hover {
+			--button_background: transparent;
+
+			transform: scale(2);
+			transition: transform 0.2s ease-in-out;
+		}
+	}
+}

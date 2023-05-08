@@ -1,0 +1,47 @@
+@mixin button {
+	--button_background: var(--purple_bright);
+	--button_text: var(--neutral_light);
+	--button_border: var(--purple_bright);
+
+	padding: 0.5em 1em;
+	border: 2px solid var(--button_border);
+	border-radius: 0;
+	background: var(--button_background);
+	color: var(--button_text);
+	font-family: var(--font_headings);
+	font-size: 1.1em;
+	font-weight: 500;
+	cursor: pointer;
+
+	&:hover {
+		--button_background: var(--button_background);
+		--button_text: var(--purple_bright);
+	}
+}  
+
+@mixin button_secondary {
+	--button_background: var(--button_background);
+	--button_text: var(--purple_bright);
+	--button_border: var(--purple_bright);
+
+	&:hover {
+		--button_background: var(--purple_bright);
+		--button_text: var(--neutral_light);
+	}
+}
+
+@mixin button_text {
+	--button_background: transparent;
+	--button_text: var(--purple_bright);
+
+	display: inline-flex;
+	padding: 0;
+	border-width: 0;
+
+	&:hover {
+		--button_background: transparent;
+		--button_text: var(--purple_bright);
+
+		text-decoration: underline;
+	}
+}

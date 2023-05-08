@@ -1,0 +1,46 @@
+---
+const {categories, current} = Astro.props
+---
+
+<style>
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		margin: -10px;
+		padding: 0;
+		list-style: none;
+	}
+
+	li {
+		margin: 10px;
+	}
+
+	a {
+		display: block;
+		color: inherit;
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+
+		&[data-current="true"] {
+			font-weight: 700;
+		}
+	}
+
+</style>
+
+<ul>
+	{current && <li><a href="/recipes">All</a></li>}
+	{categories.map(({label, slug}) => (
+		<li>
+			<a 
+				href={`/recipes/category/${slug}`}
+				data-current={slug === current ? 'true' : 'false'}
+			>
+				{label}
+			</a>
+		</li>
+	))}
+</ul>

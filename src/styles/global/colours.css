@@ -1,0 +1,29 @@
+:root {
+	--purple_bright: #{$purple_bright};
+	--purple: #{$purple};
+	--navy: #{$navy};
+	--blue: #{$blue};
+	--green: #{$green};
+	--red: #{$red};
+	--pink: #{$pink};
+	--orange: #{$orange};
+	--yellow: #{$yellow};
+	--neutral: #{$neutral};
+	--background: #{$background};
+	--neutral_light: #{$white};
+
+	@media(prefers-color-scheme: dark) {
+		--purple_bright: #{$light_purple_bright};
+		--purple: #{$light_purple};
+		--navy: #{$light_navy};
+		--blue: #{$light_blue};
+		--green: #{$light_green};
+		--red: #{$light_red};
+		--pink: #{$light_pink};
+		--orange: #{$light_orange};
+		--yellow: #{$light_yellow};
+		--neutral: #{$neutral};
+		--background: #{$background};
+		--neutral_light: #{$white};
+	}
+}

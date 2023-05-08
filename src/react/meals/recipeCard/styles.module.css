@@ -1,0 +1,46 @@
+.card {
+	padding: 10px 10px 20px;
+	border-radius: 20px;
+	box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+
+	& h3 {
+		font-size: 1em;
+	}
+}
+
+.image {
+	width: 100%;
+	overflow: hidden;
+	border-radius: inherit;
+	background: currentColor;
+}
+
+.difficulty, .time {
+	display: inline-flex;
+	align-items: center;
+
+	& svg {
+		width: auto;
+		height: 1.2em;
+		margin-right: 1ch;
+	}
+}
+
+@supports (grid-template-areas: '.') {
+	.card {
+		display: grid;
+		grid-gap: 10px; 
+		grid-template-areas: 'img img' 'title title' 'level time';
+		grid-template-columns: repeat(2, 1fr);
+		grid-template-rows:auto 1fr auto;
+	}
+
+	.image,
+	:global(picture) {
+		grid-area: img;
+	}
+
+	h3 {
+		grid-area: title;
+	}
+}

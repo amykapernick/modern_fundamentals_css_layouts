@@ -1,0 +1,71 @@
+@import '@mixins';
+
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	max-width: max-content;
+	margin: 10px 20px;
+	
+	&:has(.checkbox:checked) {
+		order: 2;
+
+		& .due {
+			font-style: italic;
+			font-weight: 400;
+		}
+
+		&:not(:hover, :focus, :focus-within) {
+			opacity: 0.8;
+		}
+	}
+
+	&:has(.due[data-overdue="true"]):not(:has(.checkbox:checked)) {
+		& .label {
+			color: var(--red);
+		}
+	}
+
+	& .controls {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	&:hover, &:focus, &:focus-within {
+		& .controls {
+			opacity: 1;
+			pointer-events: auto;
+		}
+	}
+}
+
+.checkbox {
+	display: block;
+	flex-grow: 0;
+	width: 2em;
+	height: 2em;
+	margin: 0 1ch 0 0;
+
+	&:checked {
+		& + .label {
+			text-decoration: line-through;
+			text-decoration-thickness: 2px;
+		}
+	}
+}
+
+.label {
+	margin: 0;
+	font-size: 1.5em;
+}
+
+.due {
+	margin-left: 1ch;
+	font-style: italic;
+	font-weight: 400;
+
+	&[data-overdue="true"] {
+		font-style: normal;
+		font-weight: 700;
+	}
+}

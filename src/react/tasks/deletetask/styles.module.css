@@ -1,0 +1,34 @@
+@import '@mixins';
+
+.popup {
+
+	@include modal;
+}
+
+.form {
+	padding: 0;
+}
+
+.heading {
+	margin-top: 0;
+}
+
+.button {
+
+	@include button_text;
+
+	margin-left: 20px;
+	padding: 5px;
+	font-size: 0.7em;
+	
+	& svg {
+		display: block;
+		width: auto;
+		height: 1em;
+	}
+
+	&:hover {
+		background: var(--purple_bright);
+		color: var(--neutral_light);
+	}
+}

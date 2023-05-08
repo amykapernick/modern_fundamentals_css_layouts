@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@components/*": [
+        "src/components/*.astro"
+      ],
+      "@fonts/*": [
+        "src/fonts/*"
+      ],
+      "@partials/*": [
+        "src/partials/*.astro"
+      ],
+      "@img/*": [
+        "src/img/*"
+      ],
+      "@pages/*": [
+        "src/pages/*.astro"
+      ],
+      "@styles/*": [
+        "src/styles/*",
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@layouts/*": [
+        "src/layouts/*.astro"
+      ],
+      "@data/*": [
+        "_data/*"
+      ],
+      "@react/*": [
+        "src/react/*"
+      ]
+    }
+  }
+}

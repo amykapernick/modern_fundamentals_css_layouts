@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+	<g stroke-linecap="square" stroke-linejoin="miter" transform="translate(0.5 0.5)" fill="none" stroke="currentColor" stroke-miterlimit="10">
+		<path d="M11,46s5.571-14,13-14,13,14,13,14H11Z" isolation="isolate" opacity=".4" stroke="none" fill="currentColor"></path>
+		<line x1="7" y1="2" x2="41" y2="2"></line>
+		<line x1="7" y1="46" x2="41" y2="46"></line>
+		<path d="M11,46s0-10,0-9.999c0-8.001,8-12.001,8-12.001,0,0-8-4.002-8-12.001,0,.001,0-9.999,0-9.999" stroke-linecap="butt"></path>
+		<path d="M37,2s0,10,0,9.999c0,7.999-8,12.001-8,12.001,0,0,8,4,8,12.001,0-.001,0,9.999,0,9.999" stroke-linecap="butt"></path>
+	</g>
+</svg>

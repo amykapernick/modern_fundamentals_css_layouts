@@ -1,0 +1,86 @@
+.calendar {
+	display: grid;
+	grid-auto-rows: 100px;
+	grid-gap: 10px;
+	grid-template-columns: repeat(7, 1fr);
+	grid-template-rows: auto;
+}
+
+.controls {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	margin: 0 -10px;
+
+	& > * {
+		margin: 10px;
+
+		&:last-child {
+			margin-left: auto;
+		}
+	}
+}
+
+.date {
+	position: relative;
+	z-index: -2;
+	grid-column-start: var(--column);
+	grid-row-start: var(--row);
+	width: 100%;
+	height: 100%;
+	background: var(--blue);
+	color: var(--neutral_light);
+	font-size: 1.5em;
+	font-weight: 700;
+	text-align: center;
+
+	&::before {
+		content: attr(data-date);
+		position: absolute;
+		top: 0;
+		right: 0.25em;
+		font-size: 1.5em;
+	}
+
+	&[data-date="1"], &:nth-child(8) {
+		&::after {
+			content: attr(data-month);
+			position: absolute;
+			top: 0.2em;
+			left: 0.5em;
+			opacity: 0.9;
+			font-size: 0.7em;
+		}
+	}
+
+	&[data-past="true"] {
+		opacity: 0.5;
+	}
+}
+
+.event {
+	position: relative;
+	grid-column-end: var(--end);
+	grid-column-start: var(--start);
+	grid-row-start: var(--row);
+	align-self: end;
+	height: max-content;
+	max-height: 50%;
+	margin-bottom: 5px;
+	background: var(--green);
+	color: var(--neutral_light);
+
+	&[data-hidden="true"] {
+		display: none;
+	}
+}
+
+.weeksField {
+	width: max-content;
+}
+
+.start_date {
+	display: block;
+	font-size: 2em;
+	font-weight: 700;
+}

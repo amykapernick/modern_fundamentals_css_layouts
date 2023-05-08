@@ -1,0 +1,16 @@
+@mixin container_spacing {
+	padding: 20px;
+
+	@media(min-width: 45em) {
+		padding: 40px;
+	}
+
+	@media(min-width: 60em) {
+		padding: 40px 5vw;
+	}
+
+	@media(min-width: 80em) {
+		padding: 40px calc(50vw - 35em);
+	}
+}
+

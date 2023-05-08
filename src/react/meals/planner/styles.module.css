@@ -1,0 +1,45 @@
+.week {
+	display: flex;
+	margin: 20px 0;
+	padding: 0;
+	list-style: none;
+}
+
+.day {
+	flex: 1 1 100px;
+	margin: 0;
+	padding: 10px;
+
+	& h2 {
+		font-size: 1.2em;
+	}
+}
+
+.cards {
+	margin: -10px 0;
+	padding: 0;
+	list-style: none;
+
+	& li {
+		margin: 10px 0;
+		padding: 0;
+	}
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	margin: 0 -20px;
+	padding: 0;
+	list-style: none;
+
+	& li {
+		margin: 20px;
+		padding: 0;
+		font-weight: 600;
+	}
+
+	& button {
+		font-size: 0.8em;
+	}
+}

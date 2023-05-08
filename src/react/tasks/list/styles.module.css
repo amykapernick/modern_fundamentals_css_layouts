@@ -1,0 +1,8 @@
+@import '@mixins';
+
+.list {
+	display: flex;
+	flex-direction: column;
+	margin: 10px -20px;
+	padding: 0;
+}

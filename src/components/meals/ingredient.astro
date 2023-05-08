@@ -1,0 +1,14 @@
+---
+
+const { quantity, unit, ingredient, category } = Astro.props;
+---
+
+<>
+  {
+    ingredient ? (
+      <>{`${quantity || ""} ${unit || ""} ${ingredient || ""}`}</>
+    ) : (
+      <><strong>{category}</strong></>
+    )
+  }
+</>

@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/default';
+import RecipeFeed from '@components/meals/recipeFeed';
+import generateCategories from '@utils/meals/categories';
+import Categories from '@components/meals/categories';
+
+const recipes = await getCollection('recipes');
+const categories = generateCategories(recipes);
+
+---
+
+
+
+<Layout>
+	<h1>Recipes</h1>
+	<Categories categories={categories} />
+	<RecipeFeed recipes={recipes} />
+</Layout>

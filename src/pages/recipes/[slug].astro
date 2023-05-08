@@ -1,0 +1,78 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "@layouts/recipe";
+import formatIngredients from "@utils/meals/parseIngredients";
+import IngredientItem from "@components/meals/ingredient";
+import { Picture } from '@astrojs/image/components';
+import Categories from "@components/meals/categories";
+import {recipeCategories} from "@utils/meals/categories";
+import SaveRecipe from "@react/meals/saveRecipe";
+
+export async function getStaticPaths() {
+  const recipes = await getCollection("recipes");
+
+  return recipes.map((r) => ({
+    params: { slug: r.slug },
+    props: { recipe: r },
+  }));
+}
+
+const recipe = Astro.props.recipe;
+const { Content } = await recipe.render();
+const ingredients = formatIngredients(recipe.data.ingredients);
+const categories = recipe.data.categories ? recipeCategories(recipe.data.categories): null
+---
+
+<style>
+  .image {
+    width: 100%;
+    max-width: 400px;
+
+    @media(min-width: 40em) {
+        width: 40%;
+		margin-left: 20px;
+        float: right;
+    }
+  }
+
+  article {
+    clear: both;
+    overflow: hidden;
+  }
+
+ .save {
+	max-width: 200px;
+	margin-top: 10px;
+ }
+</style>
+
+<Layout>
+	<article>
+		<header>
+			<h1>{recipe.data.title}</h1>
+			{recipe.data.image && 
+				<Picture
+					class='image'
+					src={recipe.data.image}
+					alt={`Photo of ${recipe.data.title}`}
+					widths={[400]}
+					aspectRatio={1}
+					sizes={''}
+					formats={['avif', 'webp', 'jpeg']}
+				/>
+			}
+			{categories && <Categories categories={categories} />}
+			<SaveRecipe className="save" recipe={recipe.slug} client:only />
+		</header>
+		<h2>Ingredients</h2>
+		<ul>
+			{ingredients.map((i) => (
+				<li>
+				<IngredientItem {...i} />
+				</li>
+			))}
+		</ul>
+		<h2>Method</h2>
+		<Content />
+	</article>
+</Layout>

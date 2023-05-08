@@ -1,0 +1,39 @@
+@import '@mixins';
+
+.container {
+	position: relative;
+	font-size: 0.8em;
+}
+
+.button {
+	display: block;
+	width: 100%;
+}
+
+.list {
+	position: absolute;
+	z-index: 2;
+	width: 100%;
+	max-width: 100%;
+	margin: 5px 0 0;
+	padding: 10px;
+	background: var(--background);
+	box-shadow: 0 0 10px rgb(0 0 0 / 20%);
+	font-size: 0.8em;
+	list-style: none;
+
+	& li {
+		max-width: 100%;
+
+		&:not(:last-child) {
+			margin-bottom: 10px;
+		}
+	}
+
+	& button {
+		&:not([data-selected="true"]) {
+
+			@include button_secondary;
+		}
+	}
+}

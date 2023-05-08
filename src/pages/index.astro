@@ -1,0 +1,13 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '@layouts/default';
+import RecipeFeed from '@components/meals/recipeFeed';
+
+const recipes = await getCollection('recipes');
+
+---
+
+<Layout>
+	<h2>Recipes</h2>
+	<RecipeFeed recipes={recipes.slice(0, 6)} />
+</Layout>
