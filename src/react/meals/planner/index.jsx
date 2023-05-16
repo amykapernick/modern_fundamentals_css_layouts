@@ -2,6 +2,7 @@ import { addDays, format, setDay } from "date-fns"
 import { useEffect, useState } from "react"
 import RecipeCard from "../recipeCard"
 import days from '@data/meals/days'
+import classes from '@utils/classes.cjs'
 
 import styles from "./styles.module.css"
 import getCurrentWeek from "@utils/meals/currentWeek"
@@ -33,26 +34,13 @@ const MealPlanner = (props) => {
 	}, [])
 	
 	return (
-		<>
-			<ul className={styles.nav}>
-				<li>{format(currentWeek, 'dd MMM')} - {format(addDays(currentWeek, 6), 'dd MMM')}</li>
-				<li>
-					<button onClick={() => setCurrentWeek(previousWeek(currentWeek))}>Previous Week</button>
-				</li>
-				<li>
-					<button onClick={() => setCurrentWeek(nextWeek(currentWeek))}>Next Week</button>
-				</li>
-				<li>
-					<button
-						onClick={() => setCurrentWeek(addDays(setDay(new Date(), 6), -7))}
-					>
-						This Week
-					</button>
-				</li>
-			</ul>
-			<ul className={styles.week}>
+		<div className="planner">
+			<p className={styles.nav}>
+			{format(currentWeek, 'dd MMM')} - {format(addDays(currentWeek, 6), 'dd MMM')}
+			</p>
+			<ul className={classes(styles.week, 'week')}>
 				{days.map(({name, number}) => (
-					<li className={styles.day} key={number}>
+					<li className={classes(styles.day, 'day     ')} key={number}>
 						<h2>{name}</h2>
 						{currentRecipes[number] && 
 							<ul className={styles.cards}>
@@ -64,7 +52,7 @@ const MealPlanner = (props) => {
 					</li>
 				))}
 			</ul>
-		</>
+		</div>
 	)
 }
 

@@ -1,0 +1,205 @@
+body.development {
+	& .header, 
+	& .menu, 
+	& .recipe, 
+	& .featured_image, 
+	& .shopping_list, 
+	& .list_item,
+	& .list_item label,
+	& .menu_item,
+	& .recipe_feed,
+	& .recipe_item,
+	& .recipe_categories,
+	& .category,
+	& .planner,
+	& .week,
+	& .day,
+	& .todo_list,
+	& .todo_item,
+	& .recipe_card,
+	& .feature_image,
+	& .save_button,
+	& .recipe_title
+	{
+		position: relative;
+		outline: 3px dotted var(--colour);
+		outline-offset: 0;
+
+		&::before {
+			content: var(--class);
+			display: block;
+			position: absolute;
+			z-index: 50;
+			top: 0;
+			left: var(--left, 10%);
+			padding: 5px 10px;
+			border-radius: 10px;
+			background: $navy;
+			color: $background;
+			font-family: $font_code;
+			font-size: 14px;
+			font-weight: 400;
+		}
+
+		&:not(:hover) {
+			&::before {
+				content: normal;
+			}
+		}
+	}
+
+	& .header {
+		--class: '.header';
+		--colour: $pink;
+
+		outline-offset: 3px;
+
+		& .menu {
+			--class: '.menu';
+			--colour: $green;
+
+			outline-offset: 2px;
+
+			& .menu_item {
+				--class: '.menu_item';
+				--colour: $light_yellow;
+				--left: 20%;
+
+				outline-offset: -3px;
+				outline-width: 2px;
+			}
+		}
+	}
+
+	& .recipe {
+		--class: '.recipe';
+		--colour: $light_orange;
+
+		outline-offset: 10px;
+
+		& .featured_image {
+			--class: '.featured_image';
+			--colour: $light_red;
+		}
+	}
+
+	& .shopping_list {
+		--class: '.shopping_list';
+		--colour: $light_orange;
+
+		& .list_item {
+			--class: '.list_item';
+			--colour: $light_green;
+			--left: 30%;
+
+			outline-offset: -3px;
+			outline-width: 2px;
+
+			& label {
+				--class: 'label';
+				--colour: $light_purple_bright;
+				--left: 50%;
+
+				outline-offset: -3px;
+				outline-width: 2px;
+				
+			}
+		}
+	}
+
+	& .recipe_feed {
+		--class: '.recipe_feed';
+		--colour: $light_purple;
+		--left: 80%;
+
+		& .recipe_item {
+			--class: '.recipe_item';
+			--colour: $light_orange;
+			--left: 40%;
+
+			outline-offset: -4px;
+		}
+	}
+
+	& .recipe_card {
+		--class: '.recipe_card';
+		--colour: $light_red;
+		--left: 10%;
+
+		outline-offset: -3px;
+		outline-width: 2px;
+
+		& .feature_image {
+			--class: '.feature_image';
+			--colour: $light_green;
+			--left: 30%;
+
+			outline-offset: -3px;
+			outline-width: 2px;
+		}
+
+		& .save_button {
+			--class: '.save_button';
+			--colour: $light_yellow;
+
+			outline-width: 2px;
+		}
+
+		& .recipe_title {
+			--class: '.recipe_title';
+			--colour: $light_purple;
+
+			outline-offset: 3px;
+			outline-width: 2px;
+		}
+	}
+
+	& .recipe_categories {
+		--class: '.recipe_categories';
+		--colour: $light_green;
+
+		outline-offset: 2px;
+
+		& .category {
+			--class: '.category';
+			--colour: $light_yellow;
+			--left: 30%;
+
+			outline-offset: -3px;
+			outline-width: 2px;
+		}
+	}
+
+	& .planner {
+		--class: '.planner';
+		--colour: $light_green;
+
+		outline-offset: 5px;
+
+		& .week {
+			--class: '.week';
+			--colour: $light_red;
+
+			& .day {
+				--class: '.day';
+				--colour: $light_purple;
+				--left: 30%;
+
+				outline-offset: -3px;
+				outline-width: 2px;
+			}
+		}
+	}
+
+	& .todo_list {
+		--class: '.todo_list';
+		--colour: $light_purple;
+		--left: 50%;
+
+		& .todo_item {
+			--class: '.todo_item';
+			--colour: $light_orange;
+			--left: 10%;
+		}
+	}
+}

@@ -1,4 +1,19 @@
 ---
 ---
 
-<footer></footer>
+<style>
+	@import '@mixins';
+
+	footer {
+
+		@include container_spacing;
+
+		font-size: 1.2em;
+		font-weight: 700;
+		text-align: center;
+	}
+</style>
+
+<footer>
+	&copy; {new Date().getFullYear()} Modern Front End Fundamentals
+</footer>

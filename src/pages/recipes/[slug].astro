@@ -24,15 +24,23 @@ const categories = recipe.data.categories ? recipeCategories(recipe.data.categor
 ---
 
 <style>
-  .image {
+  .featured_image {
     width: 100%;
     max-width: 400px;
+
+	& :global(img) {
+		display: block;
+		max-width: 100%;
+	}
 
     @media(min-width: 40em) {
         width: 40%;
 		margin-left: 20px;
-        float: right;
     }
+  }
+
+  header {
+	margin-bottom: 20px;
   }
 
   article {
@@ -47,23 +55,26 @@ const categories = recipe.data.categories ? recipeCategories(recipe.data.categor
 </style>
 
 <Layout>
-	<article>
+	<article class="recipe">
 		<header>
 			<h1>{recipe.data.title}</h1>
-			{recipe.data.image && 
-				<Picture
-					class='image'
-					src={recipe.data.image}
-					alt={`Photo of ${recipe.data.title}`}
-					widths={[400]}
-					aspectRatio={1}
-					sizes={''}
-					formats={['avif', 'webp', 'jpeg']}
-				/>
-			}
+			
 			{categories && <Categories categories={categories} />}
 			<SaveRecipe className="save" recipe={recipe.slug} client:only />
 		</header>
+		{recipe.data.image && 
+			<div class='featured_image'>
+				<Picture
+				
+				src={recipe.data.image}
+				alt={`Photo of ${recipe.data.title}`}
+				widths={[400]}
+				aspectRatio={1}
+				sizes={''}
+				formats={['avif', 'webp', 'jpeg']}
+			/>
+			</div>
+		}
 		<h2>Ingredients</h2>
 		<ul>
 			{ingredients.map((i) => (

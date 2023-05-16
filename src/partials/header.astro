@@ -1,5 +1,4 @@
 ---
-
 const menuItems = [
   {
 	label: 'Home',
@@ -40,10 +39,6 @@ const menuItems = [
 
 		@include container_spacing;
 
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
 		font-size: 1.2em;
 		font-weight: 700;
 	}
@@ -55,18 +50,19 @@ const menuItems = [
 	}
 
 	.menu {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
-		margin: -10px;
+		margin: 0;
 		padding: 0;
 
 		& li {
 			position: relative;
-			margin: 10px;
+			margin: 0;
+			padding: 0;
 		}
 
 		& a, & button {
+			display: flex;
+			align-items: center;
+			height: 100%;
 			padding: 10px;
 			color: inherit;
 			font-size: inherit;
@@ -128,12 +124,12 @@ const menuItems = [
 	})
 </script>
 
-<header>
+<header class="header">
 	<a href="/" class="title">🏡</a>
 	  <nav>
 		<ul class="menu">
 			{menuItems.map(({label, link, items}) => (
-				<li>
+				<li class="menu_item">
 					{items ? 
 						<>
 							<button class="menu_section">{label}</button>

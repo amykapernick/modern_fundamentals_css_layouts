@@ -1,11 +1,10 @@
 ---
 import "@styles/main.css";
+import '../../styles/main.css';
 import Header from "@partials/header";
 import Footer from "@partials/footer";
-import DevStyles from "@partials/devStyles";
 import Favicon from "@img/favicon.ico";
-
-const env = import.meta.env.MODE; 
+import classes from "@utils/classes.cjs";
 
 const siteData = {
   title: "Home",
@@ -43,8 +42,7 @@ const { title, description } = content;
     <meta name="description" content={description} />
   </head>
 
-  <body class={Astro.props.class}>
-    {env === "development" && <DevStyles />}
+  <body class={classes(Astro.props.class, import.meta.env.MODE)}>
     <Header />
 
     <main>

@@ -37,32 +37,39 @@ const Calendar = () => {
 
 	return (
 		<>
-			<div className={styles.controls}>
-				<p>View starting <span className={styles.start_date}>{format(new Date(startWeek), 'dd MMM')}</span></p>
-				<button
-					onClick={() => {
-						handleChangeWeek(addWeeks(new Date(startWeek), -1))
-					}}
-				>
-					Previous Week
-				</button>
-				
-				<button
-					onClick={() => {
-						handleChangeWeek(addWeeks(new Date(startWeek), 1))
-					}}
-				>
-					Next Week
-				</button>
-				<button
-					onClick={() => {
-						handleChangeWeek(startOfWeek(new Date(), {weekStartsOn: 1}))
-					}}
-				>
-					Current Week
-				</button>
-				<AddEvent {...{events, updateEvents}} />
-			</div>
+			<ul className={styles.controls}>
+				<li>View starting <span className={styles.start_date}>{format(new Date(startWeek), 'dd MMM')}</span></li>
+				<li>
+					<button
+						onClick={() => {
+							handleChangeWeek(addWeeks(new Date(startWeek), -1))
+						}}
+					>
+						Previous Week
+					</button>
+				</li>
+				<li>
+					<button
+						onClick={() => {
+							handleChangeWeek(addWeeks(new Date(startWeek), 1))
+						}}
+					>
+						Next Week
+					</button>
+				</li>
+				<li>
+					<button
+						onClick={() => {
+							handleChangeWeek(startOfWeek(new Date(), {weekStartsOn: 1}))
+						}}
+					>
+						Current Week
+					</button>
+				</li>
+				<li>
+					<AddEvent {...{events, updateEvents}} />
+				</li>
+			</ul>
 			<div className={styles.calendar}>
 				<Dates 
 					startWeek={startWeek} 

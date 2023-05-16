@@ -6,17 +6,15 @@
 }
 
 .item {
-	display: inline-flex;
-	flex-wrap: wrap;
-	align-content: center;
 	width: 100%;
+	padding: 5px;
 
 	&:not(:last-child) {
 		margin-bottom: 10px;
 	}
 
 	& label {
-		flex: 1 1 80%;
+		padding: 5px;
 		font-size: 1.1em;
 		font-weight: 600;
 	}
@@ -40,17 +38,4 @@
 .options {
 	width: 100%;
 	margin-top: 10px;
-}
-
-@media(min-width: 50em) {
-	.list {
-		column-fill: balance;
-		column-count: 2;
-	}
-}
-
-@media(min-width: 70em) {
-	.list {
-		column-count: 3;
-	}
 }

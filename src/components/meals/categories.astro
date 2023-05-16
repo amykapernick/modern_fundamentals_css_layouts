@@ -4,19 +4,19 @@ const {categories, current} = Astro.props
 
 <style>
 	ul {
-		display: flex;
-		flex-wrap: wrap;
-		margin: -10px;
+		margin: 20px 0;
 		padding: 0;
 		list-style: none;
 	}
 
 	li {
-		margin: 10px;
+		margin: 0;
+		padding: 0;
 	}
 
 	a {
 		display: block;
+		padding: 5px;
 		color: inherit;
 		text-decoration: none;
 
@@ -31,10 +31,10 @@ const {categories, current} = Astro.props
 
 </style>
 
-<ul>
-	{current && <li><a href="/recipes">All</a></li>}
+<ul class="recipe_categories">
+	{current && <li class="category"><a href="/recipes">All</a></li>}
 	{categories.map(({label, slug}) => (
-		<li>
+		<li class="category">
 			<a 
 				href={`/recipes/category/${slug}`}
 				data-current={slug === current ? 'true' : 'false'}

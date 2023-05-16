@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import getCurrentWeek from "@utils/meals/currentWeek"
 
 import styles from "./styles.module.css"
+import classes from "@utils/classes.cjs"
 
 const ShoppingList = (props) => {
 	const { recipes } = props
@@ -67,11 +68,11 @@ const ShoppingList = (props) => {
 	
 	return (
 		<>
-			<ul className={styles.list}>
+			<ul className={classes(styles.list, 'shopping_list')}>
 				{ingredientsList.map(({item, quantities}) => {
 					const slug = item.replace(/ /g, '-')
 					return (
-						<li key={slug} className={styles.item}>
+						<li key={slug} className={classes(styles.item, 'list_item')}>
 							<input type="checkbox" name="shopping_list" value={slug} id={slug} />
 							<label htmlFor={slug}>{item}</label>
 							<ul className={styles.options}>{quantities.map(q => (

@@ -1,15 +1,11 @@
 @import '@mixins';
 
 .task {
-	display: flex;
-	align-items: center;
-	justify-content: flex-start;
 	max-width: max-content;
 	margin: 10px 20px;
+	padding: 5px;
 	
 	&:has(.checkbox:checked) {
-		order: 2;
-
 		& .due {
 			font-style: italic;
 			font-weight: 400;

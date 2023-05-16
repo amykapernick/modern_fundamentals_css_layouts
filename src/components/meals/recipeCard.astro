@@ -11,8 +11,9 @@ const recipe = Astro.props.recipe;
 <style>
 	@import '@mixins';
 
-	.card {
+	.recipe_card {
 		position: relative;
+		max-width: 400px;
 		height: 100%;
 		padding: 20px;
 		border-radius: 20px;
@@ -58,52 +59,31 @@ const recipe = Astro.props.recipe;
 			margin-right: 1ch;
 		}
 	}
-
-	@supports (grid-template-areas: '.') {
-		.card {
-			display: grid;
-			grid-gap: 10px; 
-			grid-template-areas: 'img img' 'title title' 'level time' 'save save';
-			grid-template-columns: repeat(2, 1fr);
-			grid-template-rows:auto 1fr auto;
-		}
-
-		.image,
-		:global(picture) {
-			grid-area: img;
-		}
-
-		.save { 
-			grid-area: save;
-		}
-
-		h3 {
-			grid-area: title;
-		}
-	}
 </style>
 
-<div class='card'>
-	{
-		recipe.data.image ? (
-			<Picture
-				class='image'
-				src={recipe.data.image}
-				alt={`Photo of ${recipe.data.title}`}
-				widths={[200]}
-				aspectRatio={1}
-				sizes={''}
-				formats={['avif', 'webp', 'jpeg']}
-			/>
-		) : (
-			<img
-				src={Fallback}
-				alt=''
-				class='image fallback'
-			/>
-		)
-	}
-	<h3><a href={`/recipes/${recipe.slug}`}>{recipe.data.title}</a></h3>
+<div class="recipe_card">
+	<div class="feature_image">
+		{
+			recipe.data.image ? (
+				<Picture
+					class='image'
+					src={recipe.data.image}
+					alt={`Photo of ${recipe.data.title}`}
+					widths={[200]}
+					aspectRatio={1}
+					sizes={''}
+					formats={['avif', 'webp', 'jpeg']}
+				/>
+			) : (
+				<img
+					src={Fallback}
+					alt=''
+					class='image fallback'
+				/>
+			)
+		}
+	</div>
+	<h3 class="recipe_title"><a href={`/recipes/${recipe.slug}`}>{recipe.data.title}</a></h3>
 	{
 		recipe.data.difficulty && (
 			<span>
@@ -120,5 +100,5 @@ const recipe = Astro.props.recipe;
 			</span>
 		)
 	}
-	<SaveRecipe className="save" recipe={recipe.slug} client:only />
+	<SaveRecipe className="save_button" recipe={recipe.slug} client:only />
 </div>
