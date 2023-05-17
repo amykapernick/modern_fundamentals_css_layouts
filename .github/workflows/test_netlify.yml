@@ -8,8 +8,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-22.04
-    # Because the testing job is different, we need to out the Netlify URL so we can access it in another job
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs
+    permissions:
+      issues: write
+      pull-requests: write
     outputs:
       deploy_url: ${{steps.build_site.outputs.NETLIFY_URL}}
     steps:
