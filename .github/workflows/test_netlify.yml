@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build and Test on Netlify
 
 on:
   pull_request:
