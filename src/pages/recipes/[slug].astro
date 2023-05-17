@@ -21,6 +21,10 @@ const recipe = Astro.props.recipe;
 const { Content } = await recipe.render();
 const ingredients = formatIngredients(recipe.data.ingredients);
 const categories = recipe.data.categories ? recipeCategories(recipe.data.categories): null
+
+const content = {
+	title: recipe.data.title,
+}
 ---
 
 <style>
@@ -54,7 +58,7 @@ const categories = recipe.data.categories ? recipeCategories(recipe.data.categor
  }
 </style>
 
-<Layout>
+<Layout content={content}>
 	<article class="recipe">
 		<header>
 			<h1>{recipe.data.title}</h1>

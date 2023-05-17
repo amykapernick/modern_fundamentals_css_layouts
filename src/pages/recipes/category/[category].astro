@@ -25,9 +25,13 @@ const recipes = allRecipes.filter((recipe) => {
 
 const categories = generateCategories(allRecipes);
 
+const content = {
+	title: `${category.label} Recipes`,
+}
+
 ---
 
-<Layout>
+<Layout content={content}>
 	<h1>{category.label} Recipes</h1>
 	<Categories categories={categories} current={Astro.params.category} />
 	<RecipeFeed recipes={recipes} />

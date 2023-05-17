@@ -1,13 +1,14 @@
 {
-  "name": "household",
-  "type": "module",
+  "name": "modern-front-end-fundamentals",
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --config ./config/astro.config.mjs",
     "start": "npm run dev",
     "build": "astro check && tsc --noEmit && npm run build:astro",
     "build:astro": "astro build --config ./config/astro.config.mjs",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "test:a11y": "node tests/a11y/pa11y",
+    "test:ui": "npx playwright test --ui"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",
@@ -28,12 +29,14 @@
     "react-inlinesvg": "^3.0.2"
   },
   "devDependencies": {
+    "@playwright/test": "^1.33.0",
     "astro-eslint-parser": "^0.13.1",
     "eslint": "^8.36.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-astro": "^0.26.1",
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsx-a11y": "^6.7.1",
+    "pa11y": "^6.2.3",
     "postcss-html": "^1.5.0",
     "postcss-import": "^15.1.0",
     "postcss-mixins": "^9.0.4",
@@ -48,5 +51,10 @@
     "stylelint-order": "^6.0.3",
     "stylelint-prettier": "^3.0.0",
     "stylelint-use-nesting": "^4.1.0"
+  },
+  "overrides": {
+    "pa11y": {
+      "puppeteer": "^20.2.1"
+    }
   }
 }

@@ -5,9 +5,13 @@ import MealPlanner from 'src/react/meals/planner';
 
 const recipes = await getCollection('recipes');
 
+const content = {
+	title: 'Meal Planning'
+}
+
 ---
 
-<Layout>
+<Layout content={content}>
 	<h1>Meal Planning</h1>
 	<MealPlanner client:load recipes={recipes} />
 </Layout>

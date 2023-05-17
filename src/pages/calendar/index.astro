@@ -2,9 +2,13 @@
 import Layout from '@layouts/default';
 import Calendar from '@react/calendar/calendar'
 
+const content = {
+	title: 'Calendar'
+}
+
 ---
 
-<Layout>
+<Layout content={content}>
 	<h1>Calendar</h1>
 	<Calendar client:only />
 </Layout>
