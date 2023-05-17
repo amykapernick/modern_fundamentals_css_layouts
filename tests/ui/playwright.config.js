@@ -1,12 +1,14 @@
 const { defineConfig, devices } = require('@playwright/test');
 
+dotenv.config();
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
 	webServer: {
 		command: 'npm run dev',
-		url: 'http://localhost:3000',
+		url: process.env.SITE_URL || 'http://localhost:3000',
 		reuseExistingServer: !process.env.CI,
 	},
 	testDir: './tests',
