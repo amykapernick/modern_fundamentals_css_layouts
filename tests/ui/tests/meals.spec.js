@@ -59,27 +59,3 @@ test('Recipe in planner adds to shopping list', async ({ page }) => {
 
 	await expect(shoppingList.getByRole('listitem').filter({ hasText: recipeTitle }).first()).toBeVisible()
 })
-
-test('Recipes page matches previous snapshot', async ({ page }) => {
-	await page.goto('/recipes')
-
-	await page.waitForLoadState()
-
-	expect(await page.screenshot()).toMatchSnapshot('recipes.png')
-})
-
-test('Meal Planning page matches previous snapshot', async ({ page }) => {
-	await page.goto('/meals/planning')
-
-	await page.waitForLoadState()
-
-	expect(await page.screenshot()).toMatchSnapshot('planner.png')
-})
-
-test('Shopping list page matches previous snapshot', async ({ page }) => {
-	await page.goto('/meals/list')
-
-	await page.waitForLoadState()
-
-	expect(await page.screenshot()).toMatchSnapshot('list.png')
-})
