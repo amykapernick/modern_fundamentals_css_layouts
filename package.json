@@ -9,7 +9,7 @@
     "test:ui": "npx playwright test --ui --headed --config ./tests/ui/playwright.config.js",
     "test:ui:ci": "npx playwright test --config ./tests/ui/playwright.config.j",
     "test:vr": "npx percy snapshot tests/vr/snapshots.yml",
-    "ci": "npm install -g @percy/cli @playwright/test && npx playwright install --with-deps"
+    "ci": "npm install && npx playwright install --with-deps"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",
