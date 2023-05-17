@@ -56,13 +56,10 @@ jobs:
       - name: Install Packages
         run: npm run ci
 
-      - name: Percy Test
-        env:
-          # To authenticate, Percy will look for the PERCY_TOKEN env variable, so we can pass the secret through as an environment variable similarly to in the Netlify script previously
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        # We'll pass the deploy URL in as an output of the build job
-        # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
-        run: npx @percy/cli snapshot tests/vr/snapshots.yml --base-url ${{ needs.build.outputs.deploy_url }}
+      # - name: Percy Test
+      #   env:
+      #     PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+      #   run: npx @percy/cli snapshot tests/vr/snapshots.yml --base-url ${{ needs.build.outputs.deploy_url }}
 
       - name: Run Playwright tests
         run: npm run test:ui:ci

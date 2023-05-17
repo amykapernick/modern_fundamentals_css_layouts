@@ -1,7 +1,13 @@
 const { test, expect } = require('@playwright/test')
 
-test('Has "Home" in the title', async ({ page }) => {
+test('Has "Home" in the title', async ({ page, baseURL }) => {
 	await page.goto('/')
+
+	page.on('console', (msg) => {
+		console.log(msg)
+	})
+
+	console.log({baseURL, page})
 
 	await expect(page).toHaveTitle(/Home/)
 })
