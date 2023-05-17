@@ -4,11 +4,10 @@
   "scripts": {
     "dev": "astro dev --config ./config/astro.config.mjs",
     "start": "DEVTOOLS='development' npm run dev",
-    "build": "astro check && tsc --noEmit && npm run build:astro",
-    "build:astro": "astro build --config ./config/astro.config.mjs",
-    "preview": "astro preview",
+    "build": "astro build --config ./config/astro.config.mjs",
     "test:a11y": "node tests/a11y/pa11y",
-    "test:ui": "npx playwright test --ui --headed --config ./tests/ui/playwright.config.js"
+    "test:ui": "npx playwright test --ui --headed --config ./tests/ui/playwright.config.js",
+    "test:vr": "npx percy snapshot tests/vr/snapshots.yml"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",
@@ -29,6 +28,7 @@
     "react-inlinesvg": "^3.0.2"
   },
   "devDependencies": {
+    "@percy/cli": "^1.24.1",
     "@playwright/test": "^1.33.0",
     "astro-eslint-parser": "^0.13.1",
     "eslint": "^8.36.0",

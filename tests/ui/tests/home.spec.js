@@ -12,3 +12,11 @@ test('Has a recipes section', async ({ page }) => {
 
 	page.getByRole('heading', { name: 'Recipes' })
 })
+
+test('Matches previous snapshot', async ({ page }) => {
+	await page.goto('/')
+
+	await page.waitForLoadState()
+
+	expect(await page.screenshot()).toMatchSnapshot('home.png')
+})

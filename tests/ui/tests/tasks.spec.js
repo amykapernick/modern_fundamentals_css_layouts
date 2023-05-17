@@ -20,3 +20,12 @@ test('Can add a new task', async ({ page }) => {
 
 	await page.getByText(taskName).waitFor()
 })
+
+
+test('To Do List page matches previous snapshot', async ({ page }) => {
+	await page.goto('/tasks')
+
+	await page.waitForLoadState()
+
+	expect(await page.screenshot()).toMatchSnapshot('tasks.png')
+})
