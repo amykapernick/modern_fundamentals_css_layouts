@@ -11,7 +11,7 @@ jobs:
     # Because the testing job is different, we need to out the Netlify URL so we can access it in another job
     # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idoutputs
     outputs:
-      deploy_url: ${{steps.build_site.outputs.NETLIFY_URL}}
+      deploy_url: ${{steps.build_site.outputs.AZURE_URL}}
     steps:
       - name: Checkout Repo Code
         uses: actions/checkout@v3
@@ -21,41 +21,16 @@ jobs:
         with:
           node-version: 16
 
-      - name: Install Node Modules
-        run: npm install
-
-      - name: Deploy to Netlify
-        id: build_site
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: ./_actions/netlify_deploy.sh
-
-      - uses: actions/github-script@v6
+        - name: Build And Deploy
+        id: builddeploy
+        uses: Azure/static-web-apps-deploy@v1
         with:
-          script: |
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: 'The build works! You can view the deploy preview at ${{steps.build_site.outputs.NETLIFY_URL}}'
-            })
-
-  # Creating a new job for the tests to run in
-  test:
-    # Because the website has to have built first, we're defining a dependency on the `needs` property, that the test job needs to have the build job complete first
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idneeds
-    needs: build
-    runs-on: ubuntu-22.04
-    steps:
-      # Jobs run in their own separate environments, so we need to checkout the repo code again so we can run tests that are defined in the repo
-      - name: Checkout Repo Code
-        uses: actions/checkout@v3
-
-      - name: Percy Test
-        env:
-          # To authenticate, Percy will look for the PERCY_TOKEN env variable, so we can pass the secret through as an environment variable similarly to in the Netlify script previously
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-        # We'll pass the deploy URL in as an output of the build job
-        # https://docs.github.com/en/actions/learn-github-actions/contexts#needs-context
-        run: npx @percy/cli snapshot snapshots.yml --base-url ${{ needs.build.outputs.deploy_url }}
+          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_BRAVE_CLIFF_0F44EC203 }}
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          action: "upload"
+          ###### Repository/Build Configurations - These values can be configured to match your app requirements. ######
+          # For more information regarding Static Web App workflow configurations, please visit: https://aka.ms/swaworkflowconfig
+          app_location: "/" # App source code path
+          api_location: "api" # Api source code path - optional
+          output_location: "dist" # Built app content directory - optional
+          ###### End of Repository/Build Configurations ######
