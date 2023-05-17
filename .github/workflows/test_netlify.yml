@@ -29,7 +29,7 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        run: ./_actions/netlify_deploy.sh
+        run: ./.github/actions/netlify_deploy.sh
 
       - uses: actions/github-script@v6
         with:
