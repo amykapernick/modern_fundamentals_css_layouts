@@ -65,7 +65,9 @@ jobs:
         run: npx @percy/cli snapshot tests/vr/snapshots.yml --base-url ${{ needs.build.outputs.deploy_url }}
 
       - name: Run Playwright tests
-        run: npm run test:ui
+        run: npm run test:ui:ci
+        env:
+          SITE_URL: ${{ needs.build.outputs.deploy_url }}
 
       - name: Upload Playwright Report
         uses: actions/upload-artifact@v3
