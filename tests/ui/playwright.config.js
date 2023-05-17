@@ -3,15 +3,21 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
+let webServer = {
+	command: 'npm run dev',
+	url: 'http://localhost:3000',
+	reuseExistingServer: !process.env.CI,
+}
+
+if (process.env.SITE_URL) {
+	webServer = undefined
+}
+
 /**
  * @see https://playwright.dev/docs/test-configuration
  */
 module.exports = defineConfig({
-	webServer: {
-		command: 'npm run dev',
-		url: process.env.SITE_URL || 'http://localhost:3000',
-		reuseExistingServer: !process.env.CI,
-	},
+	webServer: webServer,
 	testDir: './tests',
 	outputDir: './results/assets',
 	snapshotPathTemplate: './results/snapshots/{testFilePath}/{arg}{ext}',
@@ -22,7 +28,7 @@ module.exports = defineConfig({
 		['html', { outputFolder: './results/reports' }]
 	],
 	use: {
-		baseURL: 'http://localhost:3000',
+		baseURL: process.env.SITE_URL | 'http://localhost:3000',
 		trace: 'on-first-retry',
 	},
 	projects: [
