@@ -17,7 +17,7 @@ const recipes = Astro.props.recipes
 	}
 </style>
 
-<ul class='cards recipe_feed'>
+<ul class='cards recipe_feed' data-testid="recipeFeed">
 	{
 		recipes.map((recipe) => (
 			<li class="recipe_item">

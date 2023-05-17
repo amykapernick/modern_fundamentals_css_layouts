@@ -14,12 +14,10 @@ const MealPlanner = (props) => {
 	const [currentWeek, setCurrentWeek] = useState(getCurrentWeek())
 	const [currentRecipes, setRecipes] = useState([])
 	const allRecipes = {}
-	const nextWeek = (date) => addDays(date, 7)
-	const previousWeek = (date) => addDays(date, -7)
 
 	recipes.forEach(recipe => {
 		allRecipes[recipe.slug] = recipe
-	})
+	})	
 
 	useEffect(() => {
 		const week = format(currentWeek, 'yyyy-MM-dd')

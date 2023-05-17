@@ -26,3 +26,4 @@ pnpm-debug.log*
 /playwright-report/
 /playwright/.cache/
 /tests/a11y/results/*
+/tests/ui/results/*

@@ -3,12 +3,12 @@
   "version": "0.0.1",
   "scripts": {
     "dev": "astro dev --config ./config/astro.config.mjs",
-    "start": "npm run dev",
+    "start": "DEVTOOLS='development' npm run dev",
     "build": "astro check && tsc --noEmit && npm run build:astro",
     "build:astro": "astro build --config ./config/astro.config.mjs",
     "preview": "astro preview",
     "test:a11y": "node tests/a11y/pa11y",
-    "test:ui": "npx playwright test --ui"
+    "test:ui": "npx playwright test --ui --headed --config ./tests/ui/playwright.config.js"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",

@@ -5,18 +5,18 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
 	webServer: {
-		command: 'npm start',
+		command: 'npm run dev',
 		url: 'http://localhost:3000',
 		reuseExistingServer: !process.env.CI,
 	},
-	testDir: './tests/ui',
-	outputDir: 'playwright/assets',
-	snapshotPathTemplate: 'playwright/snapshots/{testFilePath}/{arg}{ext}',
+	testDir: './tests',
+	outputDir: './results/assets',
+	snapshotPathTemplate: './results/snapshots/{testFilePath}/{arg}{ext}',
 	fullyParallel: true,
 	forbidOnly: !!process.env.CI,
 	retries: process.env.CI ? 2 : 0,
 	reporter: [
-		['html', { outputFolder: 'playwright/reports' }]
+		['html', { outputFolder: './results/reports' }]
 	],
 	use: {
 		baseURL: 'http://localhost:3000',
@@ -39,24 +39,24 @@ module.exports = defineConfig({
 		},
 
 		/* Test against mobile viewports. */
-		// {
-		//   name: 'Mobile Chrome',
-		//   use: { ...devices['Pixel 5'] },
-		// },
-		// {
-		//   name: 'Mobile Safari',
-		//   use: { ...devices['iPhone 12'] },
-		// },
+		{
+			name: 'Mobile Chrome',
+			use: { ...devices['Pixel 5'] },
+		},
+		{
+			name: 'Mobile Safari',
+			use: { ...devices['iPhone 12'] },
+		},
 
 		/* Test against branded browsers. */
-		// {
-		//   name: 'Microsoft Edge',
-		//   use: { ...devices['Desktop Edge'], channel: 'msedge' },
-		// },
-		// {
-		//   name: 'Google Chrome',
-		//   use: { ..devices['Desktop Chrome'], channel: 'chrome' },
-		// },
+		{
+			name: 'Microsoft Edge',
+			use: { ...devices['Desktop Edge'], channel: 'msedge' },
+		},
+		{
+			name: 'Google Chrome',
+			use: { ...devices['Desktop Chrome'], channel: 'chrome' },
+		},
 	],
 });
 

@@ -68,12 +68,17 @@ const ShoppingList = (props) => {
 	
 	return (
 		<>
-			<ul className={classes(styles.list, 'shopping_list')}>
+			<ul data-testid="shoppingList" className={classes(styles.list, 'shopping_list')}>
 				{ingredientsList.map(({item, quantities}) => {
 					const slug = item.replace(/ /g, '-')
 					return (
 						<li key={slug} className={classes(styles.item, 'list_item')}>
-							<input type="checkbox" name="shopping_list" value={slug} id={slug} />
+							<input
+								type="checkbox" 
+								name="shopping_list" 
+								value={slug} 
+								id={slug} 
+							/>
 							<label htmlFor={slug}>{item}</label>
 							<ul className={styles.options}>{quantities.map(q => (
 								<li key={q.recipe}>{q.quantity} <em>({q.recipe})</em></li>
