@@ -7,7 +7,9 @@
     "build": "astro build --config ./config/astro.config.mjs",
     "test:a11y": "node tests/a11y/pa11y",
     "test:ui": "npx playwright test --ui --headed --config ./tests/ui/playwright.config.js",
-    "test:vr": "npx percy snapshot tests/vr/snapshots.yml"
+    "test:ui:ci": "npx playwright test --config ./tests/ui/playwright.config.j",
+    "test:vr": "npx percy snapshot tests/vr/snapshots.yml",
+    "ci": "npm install -g @percy/cli && npx playwright install --with-deps"
   },
   "author": "Amy Kapernick <amy@kapers.dev> (https://amyskapers.dev/)",
   "license": "MIT",
