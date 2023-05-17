@@ -19,7 +19,10 @@ body.development {
 	& .recipe_card,
 	& .feature_image,
 	& .save_button,
-	& .recipe_title
+	& .recipe_title,
+	& .calendar_month,
+	& .calendar_date,
+	& .calendar_event
 	{
 		position: relative;
 		outline: 3px dotted var(--colour);
@@ -200,6 +203,29 @@ body.development {
 			--class: '.todo_item';
 			--colour: $light_orange;
 			--left: 10%;
+		}
+	}
+
+	& .calendar_month {
+		--class: '.calendar_month';
+		--colour: $light_green;
+
+		outline-offset: 10px;
+
+		& .calendar_date {
+			--class: '.calendar_date';
+			--colour: $dark_orange;
+
+			outline-offset: -3px;
+			outline-width: 2px;
+		}
+
+		& .calendar_event {
+			--class: '.calendar_event';
+			--colour: $dark_purple;
+
+			outline-offset: -3px;
+			outline-width: 2px;
 		}
 	}
 }

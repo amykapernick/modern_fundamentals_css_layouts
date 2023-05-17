@@ -1,9 +1,5 @@
 .calendar {
-	display: grid;
-	grid-auto-rows: 100px;
-	grid-gap: 10px;
-	grid-template-columns: repeat(7, 1fr);
-	grid-template-rows: auto;
+	z-index: 10;
 }
 
 .controls {
@@ -25,9 +21,7 @@
 
 .date {
 	position: relative;
-	z-index: -2;
-	grid-column-start: var(--column);
-	grid-row-start: var(--row);
+	z-index: 1;
 	width: 100%;
 	height: 100%;
 	background: var(--blue);
@@ -36,7 +30,7 @@
 	font-weight: 700;
 	text-align: center;
 
-	&::before {
+	&::after {
 		content: attr(data-date);
 		position: absolute;
 		top: 0;
@@ -44,14 +38,19 @@
 		font-size: 1.5em;
 	}
 
-	&[data-date="1"], &:nth-child(8) {
-		&::after {
+	&.date.date[data-date="1"], &.date.date:nth-child(8) {
+		&::before {
 			content: attr(data-month);
 			position: absolute;
 			top: 0.2em;
 			left: 0.5em;
+			padding: 0;
 			opacity: 0.9;
+			background: none;
+			color: inherit;
+			font-family: inherit;
 			font-size: 0.7em;
+			font-weight: inherit;
 		}
 	}
 
@@ -62,10 +61,7 @@
 
 .event {
 	position: relative;
-	grid-column-end: var(--end);
-	grid-column-start: var(--start);
-	grid-row-start: var(--row);
-	align-self: end;
+	z-index: 5;
 	height: max-content;
 	max-height: 50%;
 	margin-bottom: 5px;

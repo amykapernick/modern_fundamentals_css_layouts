@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '@layouts/default';
 import RecipeFeed from '@components/meals/recipeFeed';
+import { planner, events, tasks } from '@data/default'
 
 const recipes = await getCollection('recipes');
 
@@ -11,3 +12,19 @@ const recipes = await getCollection('recipes');
 	<h2>Recipes</h2>
 	<RecipeFeed recipes={recipes.slice(0, 6)} />
 </Layout>
+
+
+<script define:vars={{planner, events, tasks}}>
+	window.addEventListener('load', function() {
+		if (!localStorage.getItem('planner')) {
+			localStorage.setItem('planner', JSON.stringify(planner));
+		}
+		if (!localStorage.getItem('events')) {
+			localStorage.setItem('events', JSON.stringify(events));
+		}
+		if (!localStorage.getItem('tasks')) {
+			localStorage.setItem('tasks', JSON.stringify(tasks));
+		}
+	});
+
+</script>

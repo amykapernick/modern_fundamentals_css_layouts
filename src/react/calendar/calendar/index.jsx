@@ -5,6 +5,7 @@ import Dates from '@react/calendar/dates';
 import { addWeeks, format, startOfWeek } from 'date-fns';
 
 import styles from './styles.module.css'
+import classes from '@utils/classes.cjs';
 
 
 const Calendar = () => {
@@ -70,15 +71,15 @@ const Calendar = () => {
 					<AddEvent {...{events, updateEvents}} />
 				</li>
 			</ul>
-			<div className={styles.calendar}>
+			<div className={classes(styles.calendar, 'calendar_month')}>
 				<Dates 
 					startWeek={startWeek} 
-					className={styles.date} 
+					className={classes(styles.date, 'calendar_date')} 
 					weeksShown={weeks}
 				/>
 				{events.map((event) => (
 					<Event
-						className={styles.event}
+						className={classes(styles.event, 'calendar_event')}
 						key={event.id}
 						{...event}
 						updateEvents={updateEvents}
