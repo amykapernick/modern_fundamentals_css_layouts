@@ -28,7 +28,7 @@ module.exports = defineConfig({
 		['html', { outputFolder: './results/reports' }]
 	],
 	use: {
-		baseURL: process.env.SITE_URL | 'http://localhost:3000',
+		baseURL: process.env.SITE_URL || 'http://localhost:3000',
 		trace: 'on-first-retry',
 	},
 	projects: [
