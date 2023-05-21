@@ -34,10 +34,7 @@ When adding fields to a form, we need to add labels to let users and assistive t
 </form>
 ```
 
-<aside>
-👩🏾‍💻 Write a simple contact form that takes a full name, email address and phone number. Each field should have a label which is linked to it.
-
-</aside>
+>👩🏾‍💻 Write a simple contact form that takes a full name, email address and phone number. Each field should have a label which is linked to it.
 
 ## Datalists
 
@@ -63,10 +60,7 @@ There’s a special type of form input called a `[datalist](https://developer.mo
 </datalist>
 ```
 
-<aside>
-👩🏾‍💻 Add a `datalist` field to the form that asks for the method of transport to get here today.
-
-</aside>
+>👩🏾‍💻 Add a `datalist` field to the form that asks for the method of transport to get here today.
 
 ## Range Sliders
 
@@ -102,10 +96,7 @@ To make it easier for people to know what value they’re supplying, we can prov
 </datalist>
 ```
 
-<aside>
-👩🏾‍💻 Add a range field to find out how important Semantic HTML is in web development, ranging from *******************Not at all important******************* to *******************Most important part*******************, with a description in the middle for neutral views
-
-</aside>
+>👩🏾‍💻 Add a range field to find out how important Semantic HTML is in web development, ranging from *******************Not at all important******************* to *******************Most important part*******************, with a description in the middle for neutral views
 
 # Media
 
@@ -120,8 +111,7 @@ We can use the `[alt](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
 />
 ```
 
-<aside>
-👩🏾‍💻 Choose one of the images below and add it to the page with appropriate alt text. You can use your own image URL if you like
+>👩🏾‍💻 Choose one of the images below and add it to the page with appropriate alt text. You can use your own image URL if you like
 
 - [https://assets.codepen.io/707165/image_300.jpg](https://assets.codepen.io/707165/image_300.jpg)
 - [https://assets.codepen.io/707165/image_600.jpg](https://assets.codepen.io/707165/image_600.jpg)
@@ -129,8 +119,6 @@ We can use the `[alt](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
 - [https://assets.codepen.io/707165/image_1200.jpg](https://assets.codepen.io/707165/image_1200.jpg)
 
 🏆 *****Best alt text*****
-
-</aside>
 
 ## Figures
 
@@ -145,10 +133,7 @@ Using the `[figure` element](https://developer.mozilla.org/en-US/docs/Web/HTML/E
 
 The `figure` and `figcaption` element isn’t just for images either, it can be used for a variety of other media types.
 
-<aside>
-👩🏾‍💻 Add a figure element around our image and give it a caption for people to see. The caption doesn’t need to describe the image but should be an add-on to it.
-
-</aside>
+>👩🏾‍💻 Add a figure element around our image and give it a caption for people to see. The caption doesn’t need to describe the image but should be an add-on to it.
 
 ## Picture
 
@@ -180,14 +165,11 @@ The browser steps through each of the `source` elements until it finds one that 
 </picture>
 ```
 
-<aside>
-👩🏾‍💻 Add a `picture` element to service the following images (in order, smallest to widest) at the following screen sizes: `400px`, `600px`, `900px` (one of them will be a fallback). The `picture` should be enclosed in a `figure` with a caption
-
-- [https://assets.codepen.io/707165/image_300.jpg](https://assets.codepen.io/707165/image_300.jpg)
-- [https://assets.codepen.io/707165/image_600.jpg](https://assets.codepen.io/707165/image_600.jpg)
-- [https://assets.codepen.io/707165/image_900.jpg](https://assets.codepen.io/707165/image_900.jpg)
-- [https://assets.codepen.io/707165/image_1200.jpg](https://assets.codepen.io/707165/image_1200.jpg)
-</aside>
+>👩🏾‍💻 Add a `picture` element to service the following images (in order, smallest to widest) at the following screen sizes: `400px`, `600px`, `900px` (one of them will be a fallback). The `picture` should be enclosed in a `figure` with a caption
+>  - [https://assets.codepen.io/707165/image_300.jpg](https://assets.codepen.io/707165/image_300.jpg)
+>  - [https://assets.codepen.io/707165/image_600.jpg](https://assets.codepen.io/707165/image_600.jpg)
+>  - [https://assets.codepen.io/707165/image_900.jpg](https://assets.codepen.io/707165/image_900.jpg)
+>  - [https://assets.codepen.io/707165/image_1200.jpg](https://assets.codepen.io/707165/image_1200.jpg)
 
 ### Different Image Formats
 
@@ -207,20 +189,17 @@ The same as checking for the size of the screen, we can check the capabilities o
 </picture>
 ```
 
-<aside>
-👩🏾‍💻 Add new file formats to the `picture` element, `avif` should be rendered if it’s supported, otherwise `webp` and `jpg` if those aren’t supported. There’s some additional images to use:
-
-- [https://assets.codepen.io/707165/image_300.webp](https://assets.codepen.io/707165/image_300.webp)
-- [https://assets.codepen.io/707165/image_600.webp](https://assets.codepen.io/707165/image_600.webp)
-- [https://assets.codepen.io/707165/image_900.webp](https://assets.codepen.io/707165/image_900.webp)
-- [https://assets.codepen.io/707165/image_1200.webp](https://assets.codepen.io/707165/image_1200.webp)
-- [https://assets.codepen.io/707165/image_300.avif](https://assets.codepen.io/707165/image_300.avif)
-- [https://assets.codepen.io/707165/image_600.avif](https://assets.codepen.io/707165/image_600.avif)
-- [https://assets.codepen.io/707165/image_900.avif](https://assets.codepen.io/707165/image_900.avif)
-- [https://assets.codepen.io/707165/image_1200.avif](https://assets.codepen.io/707165/image_1200.avif)
-</aside>
-
-********Note********: Normally the picture element is used to render different sizes/formats of the same image, we’re just using different images here to make it easier to see the different images being loaded in.
+>👩🏾‍💻 Add new file formats to the `picture` element, `avif` should be rendered if it’s supported, otherwise `webp` and `jpg` if those aren’t supported. There’s some additional images to use:
+> - [https://assets.codepen.io/707165/image_300.webp](https://assets.codepen.io/707165/image_300.webp)
+> - [https://assets.codepen.io/707165/image_600.webp](https://assets.codepen.io/707165/image_600.webp)
+> - [https://assets.codepen.io/707165/image_900.webp](https://assets.codepen.io/707165/image_900.webp)
+> - [https://assets.codepen.io/707165/image_1200.webp](https://assets.codepen.io/707165/image_1200.webp)
+> - [https://assets.codepen.io/707165/image_300.avif](https://assets.codepen.io/707165/image_300.avif)
+> - [https://assets.codepen.io/707165/image_600.avif](https://assets.codepen.io/707165/image_600.avif)
+> - [https://assets.codepen.io/707165/image_900.avif](https://assets.codepen.io/707165/image_900.avif)
+> - [https://assets.codepen.io/707165/image_1200.avif](https://assets.codepen.io/707165/image_1200.avif)
+> 
+> ********Note********: Normally the picture element is used to render different sizes/formats of the same image, we’re just using different images here to make it easier to see the different images being loaded in.
 
 ## Image Maps
 
@@ -271,10 +250,8 @@ This method isn’t overly responsive as the image must be a fixed size and the 
 </map>
 ```
 
-<aside>
-👩🏾‍💻 Add the above image map to the page and see how it works, try adjusting the coordinates or removing the fixed `width` on the image to see how that changes it.
+>👩🏾‍💻 Add the above image map to the page and see how it works, try adjusting the coordinates or removing the fixed `width` on the image to see how that changes it.
 
-</aside>
 
 ## Other Figures
 
@@ -300,11 +277,9 @@ The element has various attributes to set whether there are controls, if the vid
 </video>
 ```
 
-<aside>
-👩🏾‍💻 Add a `video` to the page, inside a `figure` element, with a fallback linking to download the video
+>👩🏾‍💻 Add a `video` to the page, inside a `figure` element, with a fallback linking to download the video
+> - [https://assets.codepen.io/707165/video.mp4](https://assets.codepen.io/707165/video.mp4)
 
-- [https://assets.codepen.io/707165/video.mp4](https://assets.codepen.io/707165/video.mp4)
-</aside>
 
 ### Subtitles, Captions and Descriptions
 
@@ -336,11 +311,8 @@ Whichever of these text alternatives we’re using (we can include multiple), we
 </video>
 ```
 
-<aside>
-👩🏾‍💻 Add a captions track to the video, these are in British/Australian English. You’ll also have to add the `crossorigin` attribute to the `video` element to get them to load in to the Codepen (this may or may not be needed when you use this elsewhere).
-
-- [https://assets.codepen.io/707165/subtitles.vtt](https://assets.codepen.io/707165/subtitles.vtt)
-</aside>
+>👩🏾‍💻 Add a captions track to the video, these are in British/Australian English. You’ll also have to add the `crossorigin` attribute to the `video` element to get them to load in to the Codepen (this may or may not be needed when you use this elsewhere).
+> - [https://assets.codepen.io/707165/subtitles.vtt](https://assets.codepen.io/707165/subtitles.vtt)
 
 # Other
 
@@ -361,10 +333,8 @@ The [definition list](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/
 </dl>
 ```
 
-<aside>
-👩🏾‍💻 Add a definition list of some of the HTML tags you’ve learnt and what they’re used for. ****Hint****: you can use the `code` tag for the element name in the `dt`
+>👩🏾‍💻 Add a definition list of some of the HTML tags you’ve learnt and what they’re used for. ****Hint****: you can use the `code` tag for the element name in the `dt`
 
-</aside>
 
 ## Collapsible Sections
 
