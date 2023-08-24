@@ -1,4 +1,0 @@
-- name: Homepage
-  url: http://localhost:3000
-- name: Recipes Page
-  url: http://localhost:3000/recipes
