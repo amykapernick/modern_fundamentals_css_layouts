@@ -1,4 +1,3 @@
-const stylelint = require(`stylelint`);
 const nesting = require(`postcss-nesting`);
 const advancedCSS = require('postcss-advanced-variables')
 const rgbahex = require('postcss-hexrgba')
@@ -25,10 +24,6 @@ module.exports = {
 			Rule(rule) {
 				rule.selector = rule.selector?.replace(/:where\((\.astro-\w+)\)/g, "$1");
 			},
-		},
-		stylelint({
-			configFile: `./config/stylelint.config.cjs`,
-			fix: true
-		})
+		}
 	],
 }; 

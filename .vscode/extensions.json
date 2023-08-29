@@ -1,11 +1,6 @@
 {
   "recommendations": [
-    "astro-build.astro-vscode",
-    "deque-systems.vscode-axe-linter",
-    "dbaeumer.vscode-eslint",
-    "ms-playwright.playwright",
-    "stylelint.vscode-stylelint",
-    "maxvanderschee.web-accessibility"
+    "astro-build.astro-vscode"
   ],
   "unwantedRecommendations": []
 }
